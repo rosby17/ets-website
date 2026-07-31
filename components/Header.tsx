@@ -43,9 +43,9 @@ export default function Header({ lang, setLang }: HeaderProps) {
 
   const navItems = [
     { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero", href: "/" },
-    { label: "Services", id: "services", href: "/#services" },
+    { label: "Services", id: "services", href: "/services" },
     { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about", href: "/a-propos" },
-    { label: "Contact", id: "contact", href: "/#contact" }
+    { label: "Contact", id: "contact", href: "/contact" }
   ];
 
   const languages: { code: LanguageType; label: string }[] = [
@@ -61,8 +61,8 @@ export default function Header({ lang, setLang }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-          : "bg-white/70 backdrop-blur-sm py-4 border-b border-gray-100"
+          ? "bg-white shadow-md py-3"
+          : "bg-white py-4 border-b border-gray-100"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -71,9 +71,9 @@ export default function Header({ lang, setLang }: HeaderProps) {
           <Image
             src="/logo.png"
             alt="Logo ETS"
-            width={48}
-            height={48}
-            className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-105"
+            width={72}
+            height={72}
+            className="w-16 h-16 sm:w-20 sm:h-20 object-contain transition-transform duration-300 group-hover:scale-105"
             priority
           />
         </a>
@@ -84,7 +84,6 @@ export default function Header({ lang, setLang }: HeaderProps) {
             <a
               key={item.id}
               href={item.href}
-              onClick={(e) => handleScrollTo(e, item.id)}
               className="font-medium text-sm text-text-dark hover:text-brand-blue relative py-2 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:height-[2px] after:bg-brand-green after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.label}
@@ -101,8 +100,8 @@ export default function Header({ lang, setLang }: HeaderProps) {
               className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 bg-white hover:border-brand-blue transition-colors text-sm font-semibold text-text-dark"
               aria-label="Changer de langue"
             >
-              <Globe className="w-4 h-4 text-brand-blue" />
-              <span className="uppercase">{lang}</span>
+              <Flag country={lang === "zh" ? "CN" : lang === "en" ? "GB" : lang.toUpperCase() as any} className="w-5 h-3.5" />
+              <span className="lowercase font-bold text-sm">{lang}</span>
             </button>
 
             {showLangMenu && (
@@ -127,7 +126,9 @@ export default function Header({ lang, setLang }: HeaderProps) {
           </div>
 
           <a
-            href="tel:+2250508792288"
+            href="https://wa.me/2250171856777"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 text-brand-blue hover:text-brand-blue-dark font-semibold text-sm transition-colors"
           >
             <PhoneCall className="w-4 h-4" />
@@ -135,8 +136,9 @@ export default function Header({ lang, setLang }: HeaderProps) {
           </a>
 
           <a
-            href="/#contact"
-            onClick={(e) => handleScrollTo(e, "contact")}
+            href="https://wa.me/2250171856777?text=Bonjour%20ETS,%20je%20viens%20de%20votre%20site%20et%20j'aimerais%20plus%20d'informations."
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-brand-green text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-lg shadow-brand-green/20 hover:bg-brand-green-dark transition-all duration-300 hover:scale-105"
           >
             {t.header.contactBtn}
@@ -181,7 +183,6 @@ export default function Header({ lang, setLang }: HeaderProps) {
             <a
               key={item.id}
               href={item.href}
-              onClick={(e) => handleScrollTo(e, item.id)}
               className="font-medium text-base text-text-dark hover:text-brand-blue py-1 transition-colors border-b border-gray-50 last:border-0"
             >
               {item.label}
@@ -189,15 +190,18 @@ export default function Header({ lang, setLang }: HeaderProps) {
           ))}
           <div className="flex flex-col gap-4 mt-2">
             <a
-              href="tel:+2250508792288"
+              href="https://wa.me/2250171856777"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-brand-blue font-bold text-sm"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>+225 05 08 79 22 88</span>
+              <span>WhatsApp Call</span>
             </a>
             <a
-              href="/#contact"
-              onClick={(e) => handleScrollTo(e, "contact")}
+              href="https://wa.me/2250171856777?text=Bonjour%20ETS,%20je%20viens%20de%20votre%20site%20et%20j'aimerais%20plus%20d'informations."
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-brand-green text-white text-center font-semibold py-3 rounded-full hover:bg-brand-green-dark transition-colors"
             >
               {t.header.contactBtn}

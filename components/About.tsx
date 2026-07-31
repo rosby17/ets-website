@@ -34,13 +34,13 @@ export default function About({ lang }: AboutProps) {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Image */}
-          <div className="lg:col-span-5 relative w-full flex justify-center">
-            <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-50">
+          <div className="lg:col-span-6 relative w-full flex justify-center">
+            <div className="relative w-full max-w-[520px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-50">
               <Image
                 src="/images/about-team.png"
                 alt="Équipe de professionnels ETS"
                 fill
-                sizes="(max-width: 1024px) 100vw, 420px"
+                sizes="(max-width: 1024px) 100vw, 520px"
                 className="object-cover object-center"
                 loading="lazy"
               />
@@ -61,7 +61,7 @@ export default function About({ lang }: AboutProps) {
           </div>
 
           {/* Text brief */}
-          <div className="lg:col-span-7 flex flex-col items-start gap-6">
+          <div className="lg:col-span-6 flex flex-col items-start gap-6 lg:pl-4">
             <div className="flex flex-col gap-2">
               <span className="text-xs font-bold tracking-widest text-brand-green uppercase">
                 {t.label}

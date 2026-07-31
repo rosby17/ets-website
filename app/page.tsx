@@ -29,8 +29,6 @@ export default function Home() {
         {/* Hero Section */}
         <Hero lang={lang} />
 
-        {/* Chiffres clés & pilules des langues d'expertise */}
-        <TrustBand lang={lang} />
 
         {/* Qui sommes-nous */}
         <About lang={lang} />
@@ -52,6 +50,9 @@ export default function Home() {
 
         {/* Adresses des centres physiques */}
         <Centers lang={lang} />
+
+        {/* Chiffres clés & pilules des langues d'expertise */}
+        <TrustBand lang={lang} />
 
         {/* Témoignages clients */}
         <Testimonials lang={lang} />

@@ -83,9 +83,9 @@ export default function Footer({ lang }: FooterProps) {
               <Image
                 src="/logo.png"
                 alt="Logo ETS"
-                width={44}
-                height={44}
-                className="w-11 h-11 object-contain"
+                width={72}
+                height={72}
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
               />
             </a>
             <p className="text-sm text-gray-400 leading-relaxed mt-2 max-w-sm">
@@ -193,7 +193,7 @@ export default function Footer({ lang }: FooterProps) {
 
         {/* Lower footer */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center">
-          <span>© {currentYear} {t.copyright}</span>
+          <span>© {currentYear} ETS. {t.copyright} Développé par <a href="#" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-brand-green transition-colors">Roosevelt</a>.</span>
           <div className="flex gap-4">
             <a href="/#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
               {t.legalLink}

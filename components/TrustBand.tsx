@@ -54,7 +54,7 @@ function Counter({ end, label, suffix = "" }: StatItemProps) {
   return (
     <div ref={elementRef} className="text-center px-6 py-4">
       <div className="text-3xl sm:text-4xl font-extrabold text-brand-blue leading-none mb-1">
-        {count}
+        {count.toLocaleString()}
         {suffix}
       </div>
       <div className="text-xs sm:text-sm text-gray-500 font-semibold tracking-wide uppercase">
@@ -124,10 +124,10 @@ export default function TrustBand({ lang }: TrustBandProps) {
 
         {/* Stats counter section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl divide-x divide-gray-200/80 max-md:divide-x-0">
-          <Counter end={6} label={t.languages} suffix="+" />
-          <Counter end={3} label={t.centers} />
-          <Counter end={4} label={t.areas} />
-          <Counter end={100} label={t.validity} suffix="%" />
+          <Counter end={500000} label={lang === 'en' ? "Satisfied Clients" : lang === 'es' ? "Clientes Satisfechos" : lang === 'pt' ? "Clientes Satisfeitos" : lang === 'de' ? "Zufriedene Kunden" : lang === 'zh' ? "满意的客户" : "Clients satisfaits"} suffix="+" />
+          <Counter end={1000} label={lang === 'en' ? "Completed Projects" : lang === 'es' ? "Proyectos Completados" : lang === 'pt' ? "Projetos Concluídos" : lang === 'de' ? "Abgeschlossene Projekte" : lang === 'zh' ? "完成项目" : "Projets complétés"} suffix="+" />
+          <Counter end={10000} label={lang === 'en' ? "Words Translated" : lang === 'es' ? "Palabras Traducidas" : lang === 'pt' ? "Palavras Traduzidas" : lang === 'de' ? "Wörter übersetzt" : lang === 'zh' ? "翻译字数" : "Mots traduits"} suffix="+" />
+          <Counter end={50} label={lang === 'en' ? "Certified Experts" : lang === 'es' ? "Expertos Certificados" : lang === 'pt' ? "Especialistas Certificados" : lang === 'de' ? "Zertifizierte Experten" : lang === 'zh' ? "认证专家" : "Experts"} suffix="+" />
         </div>
       </div>
     </section>
