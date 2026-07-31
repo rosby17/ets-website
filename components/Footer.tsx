@@ -67,11 +67,10 @@ export default function Footer({ lang }: FooterProps) {
   ];
 
   const navItems = [
-    { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero" },
-    { label: translations[lang].services.formation.title, id: "services" },
-    { label: translations[lang].translationCert.title.split("?")[0].replace("Need a", "").trim(), id: "translation" },
-    { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about" },
-    { label: "Contact", id: "contact" }
+    { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero", href: "/" },
+    { label: "Services", id: "services", href: "/#services" },
+    { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about", href: "/a-propos" },
+    { label: "Contact", id: "contact", href: "/#contact" }
   ];
 
   return (
@@ -80,7 +79,7 @@ export default function Footer({ lang }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
           {/* Logo & Slogan */}
           <div className="lg:col-span-4 flex flex-col items-start gap-4">
-            <a href="#hero" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center gap-3">
+            <a href="/" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center gap-3">
               <Image
                 src="/logo.png"
                 alt="Logo ETS"
@@ -88,12 +87,6 @@ export default function Footer({ lang }: FooterProps) {
                 height={44}
                 className="w-11 h-11 object-contain"
               />
-              <div className="flex flex-col">
-                <span className="font-bold text-lg tracking-wider text-white leading-none">E·T·S</span>
-                <span className="text-[8px] font-semibold tracking-wider text-gray-400 uppercase mt-0.5">
-                  English and Translation Services
-                </span>
-              </div>
             </a>
             <p className="text-sm text-gray-400 leading-relaxed mt-2 max-w-sm">
               {t.tagline}
@@ -123,9 +116,7 @@ export default function Footer({ lang }: FooterProps) {
             <nav className="flex flex-col gap-2.5 text-sm">
               {navItems.map((item) => (
                 <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => handleScrollTo(e, item.id)}
+                  href={item.href}
                   className="hover:text-brand-green transition-colors"
                 >
                   {item.label}
@@ -141,27 +132,27 @@ export default function Footer({ lang }: FooterProps) {
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm" role="list">
               <li>
-                <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
+                <a href="/#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
                   {translations[lang].services.formation.title}
                 </a>
               </li>
               <li>
-                <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
+                <a href="/#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
                   {translations[lang].services.interpretation.title}
                 </a>
               </li>
               <li>
-                <a href="#translation" onClick={(e) => handleScrollTo(e, "translation")} className="hover:text-brand-green transition-colors">
+                <a href="/#translation" onClick={(e) => handleScrollTo(e, "translation")} className="hover:text-brand-green transition-colors">
                   {translations[lang].services.traduction.title}
                 </a>
               </li>
               <li>
-                <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
+                <a href="/#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
                   {translations[lang].services.sejours.title}
                 </a>
               </li>
               <li>
-                <a href="#program" onClick={(e) => handleScrollTo(e, "program")} className="hover:text-brand-green transition-colors">
+                <a href="/#program" onClick={(e) => handleScrollTo(e, "program")} className="hover:text-brand-green transition-colors">
                   Holiday, Fun &amp; English
                 </a>
               </li>
@@ -204,11 +195,11 @@ export default function Footer({ lang }: FooterProps) {
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center">
           <span>© {currentYear} {t.copyright}</span>
           <div className="flex gap-4">
-            <a href="#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
+            <a href="/#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
               {t.legalLink}
             </a>
             <span>·</span>
-            <a href="#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
+            <a href="/#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
               {t.privacyLink}
             </a>
           </div>

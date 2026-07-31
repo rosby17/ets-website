@@ -31,6 +31,21 @@ export const translations = {
       missionText: "« Faciliter votre insertion professionnelle et booster votre compétitivité internationale par la maîtrise de l'anglais et d'autres langues stratégiques, tout en assurant une fidélité parfaite dans vos besoins de traduction et d'interprétation. »",
       linkText: "En savoir plus sur nos engagements",
     },
+    aboutPage: {
+      heroTitle: "Notre Histoire & Nos Valeurs",
+      heroSub: "Découvrez l'essence d'ETS, notre vision fondatrice et notre engagement envers l'excellence linguistique.",
+      founderTitle: "Le Mot du Fondateur",
+      founderName: "Fondateur & Directeur Général",
+      founderQuote: "« La langue ne doit plus être une barrière, mais une passerelle vers de nouvelles opportunités mondiales. Mon ambition avec ETS est de démocratiser l'accès à une communication internationale fluide, précise et certifiée. »",
+      visionTitle: "Notre Vision",
+      visionText: "Devenir le cabinet de référence en Afrique de l'Ouest pour les services de traduction certifiée et de formation linguistique de pointe, en offrant des standards de qualité internationaux.",
+      valuesTitle: "Nos Valeurs Fondamentales",
+      values: [
+        { title: "Excellence", desc: "La rigueur absolue dans chaque traduction et chaque cours dispensé." },
+        { title: "Intégrité", desc: "La confidentialité et le respect strict des documents de nos clients." },
+        { title: "Innovation", desc: "Une approche pédagogique moderne et des méthodes interactives." }
+      ]
+    },
     services: {
       label: "Ce que nous offrons",
       title: "NOS SERVICES LINGUISTIQUES",
@@ -234,6 +249,21 @@ export const translations = {
       missionLabel: "Our Mission",
       missionText: "« To facilitate your professional integration and boost your international competitiveness through the mastery of English and other strategic languages, while ensuring perfect accuracy in translation and interpretation needs. »",
       linkText: "Learn more about our commitments",
+    },
+    aboutPage: {
+      heroTitle: "Our History & Values",
+      heroSub: "Discover the essence of ETS, our founding vision, and our commitment to linguistic excellence.",
+      founderTitle: "Word from the Founder",
+      founderName: "Founder & CEO",
+      founderQuote: "« Language should no longer be a barrier, but a gateway to new global opportunities. My ambition with ETS is to democratize access to fluid, precise, and certified international communication. »",
+      visionTitle: "Our Vision",
+      visionText: "To become the leading firm in West Africa for certified translation services and advanced language training, offering international quality standards.",
+      valuesTitle: "Our Core Values",
+      values: [
+        { title: "Excellence", desc: "Absolute rigor in every translation and every course taught." },
+        { title: "Integrity", desc: "Confidentiality and strict respect for our clients' documents." },
+        { title: "Innovation", desc: "A modern pedagogical approach and interactive methods." }
+      ]
     },
     services: {
       label: "What We Offer",
@@ -439,6 +469,21 @@ export const translations = {
       missionText: "« Facilitar su inserción profesional y potenciar su competitividad internacional mediante el dominio del inglés y otros idiomas estratégicos, garantizando al mismo tiempo una fidelidad perfecta en sus necesidades de traducción e interpretación. »",
       linkText: "Saber más sobre nuestros compromisos",
     },
+    aboutPage: {
+      heroTitle: "Nuestra Historia y Valores",
+      heroSub: "Descubra la esencia de ETS, nuestra visión fundacional y nuestro compromiso con la excelencia lingüística.",
+      founderTitle: "Palabras del Fundador",
+      founderName: "Fundador y Director General",
+      founderQuote: "« El idioma ya no debe ser una barrera, sino una puerta de acceso a nuevas oportunidades globales. Mi ambición con ETS es democratizar el acceso a una comunicación internacional fluida, precisa y certificada. »",
+      visionTitle: "Nuestra Visión",
+      visionText: "Convertirnos en el gabinete de referencia en África Occidental en servicios de traducción jurada y formación lingüística de vanguardia, ofreciendo estándares de calidad internacionales.",
+      valuesTitle: "Nuestros Valores Fundamentales",
+      values: [
+        { title: "Excelencia", desc: "Rigor absoluto en cada traducción y curso impartido." },
+        { title: "Integridad", desc: "Confidencialidad y respeto estricto de los documentos de nuestros clientes." },
+        { title: "Innovación", desc: "Un enfoque pedagógico moderno y métodos interactivos." }
+      ]
+    },
     services: {
       label: "Lo Que Ofrecemos",
       title: "NUESTROS SERVICIOS LINGÜÍSTICOS",
@@ -642,6 +687,21 @@ export const translations = {
       missionLabel: "Nossa Missão",
       missionText: "« Facilitar a sua inserção profissional e impulsionar a sua competitividade internacional através do domínio do inglês e de outros idiomas estratégicos, garantindo ao mesmo tempo uma fidelidade perfeita em todas as suas necessidades de tradução e interpretação. »",
       linkText: "Saber mais sobre os nossos compromissos",
+    },
+    aboutPage: {
+      heroTitle: "Nossa História e Valores",
+      heroSub: "Descubra a essência da ETS, a nossa visão fundadora e o nosso compromisso com a excelência linguística.",
+      founderTitle: "Palavras do Fundador",
+      founderName: "Fundador e Diretor Geral",
+      founderQuote: "« O idioma já não deve ser uma barreira, mas sim uma ponte para novas oportunidades globais. A minha ambição com a ETS é democratizar o acesso a uma comunicação internacional fluida, precisa e certificada. »",
+      visionTitle: "Nossa Visão",
+      visionText: "Tornarmo-nos o gabinete de referência na África Ocidental para serviços de tradução certificada e formação linguística de ponta, oferecendo padrões de qualidade internacionais.",
+      valuesTitle: "Nossos Valores Fundamentais",
+      values: [
+        { title: "Excelência", desc: "Rigor absoluto em cada tradução e em cada curso ministrado." },
+        { title: "Integridade", desc: "Confidencialidade e respeito rigoroso pelos documentos dos nossos clientes." },
+        { title: "Inovação", desc: "Uma abordagem pedagógica moderna e métodos interativos." }
+      ]
     },
     services: {
       label: "O Que Oferecemos",
@@ -847,6 +907,21 @@ export const translations = {
       missionText: "« Ihre berufliche Integration zu erleichtern und Ihre internationale Wettbewerbsfähigkeit durch die Beherrschung der englischen und anderer strategischer Sprachen zu stärken, während wir absolute Präzision bei Übersetzungs- und Dolmetscherdiensten garantieren. »",
       linkText: "Erfahren Sie mehr über unsere Verpflichtungen",
     },
+    aboutPage: {
+      heroTitle: "Unsere Geschichte und Werte",
+      heroSub: "Entdecken Sie die Essenz von ETS, unsere Gründungsvision und unser Engagement für sprachliche Exzellenz.",
+      founderTitle: "Worte des Gründers",
+      founderName: "Gründer & Geschäftsführer",
+      founderQuote: "« Sprache darf keine Barriere mehr sein, sondern ein Tor zu neuen globalen Möglichkeiten. Mein Ehrgeiz mit ETS ist es, den Zugang zu fließender, präziser und zertifizierter internationaler Kommunikation zu demokratisieren. »",
+      visionTitle: "Unsere Vision",
+      visionText: "Das führende Unternehmen in Westafrika für zertifizierte Übersetzungsdienste und fortschrittliches Sprachtraining zu werden und internationale Qualitätsstandards zu bieten.",
+      valuesTitle: "Unsere Grundwerte",
+      values: [
+        { title: "Exzellenz", desc: "Absolute Genauigkeit bei jeder Übersetzung und jedem unterrichteten Kurs." },
+        { title: "Integrität", desc: "Vertraulichkeit und strikter Respekt für die Dokumente unserer Kunden." },
+        { title: "Innovation", desc: "Ein moderner pädagogischer Ansatz und interaktive Methoden." }
+      ]
+    },
     services: {
       label: "Was wir anbieten",
       title: "UNSERE SPRACHDIENSTE",
@@ -1050,6 +1125,21 @@ export const translations = {
       missionLabel: "我们的使命",
       missionText: "« 通过帮助您掌握英语及其他关键语种，助力您的职业发展并提升您的国际竞争力，同时在翻译与口译服务中确保绝对的准确性与忠实度。 »",
       linkText: "了解我们的品质承诺",
+    },
+    aboutPage: {
+      heroTitle: "我们的历史与价值观",
+      heroSub: "探索ETS的本质、我们的创始愿景以及我们对语言卓越的承诺。",
+      founderTitle: "创始人寄语",
+      founderName: "创始人兼首席执行官",
+      founderQuote: "« 语言不应再是障碍，而是通往全球新机遇的大门。我创立ETS的抱负是让每个人都能获得流畅、准确且经过认证的国际交流服务。 »",
+      visionTitle: "我们的愿景",
+      visionText: "成为西非地区首屈一指的认证翻译服务和高级语言培训机构，提供国际最高质量标准。",
+      valuesTitle: "我们的核心价值观",
+      values: [
+        { title: "卓越", desc: "对每一份翻译和每一堂课都保持绝对的严谨。" },
+        { title: "诚信", desc: "对客户的文件保密，并给予绝对尊重。" },
+        { title: "创新", desc: "采用现代教学法和互动式教学模式。" }
+      ]
     },
     services: {
       label: "服务范围",

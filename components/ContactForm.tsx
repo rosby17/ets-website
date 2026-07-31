@@ -29,7 +29,6 @@ export default function ContactForm({ lang }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
     setErrorMessage("");
 
     if (!formData.name || !formData.contact || !formData.service || !formData.message) {
@@ -38,36 +37,17 @@ export default function ContactForm({ lang }: ContactFormProps) {
       return;
     }
 
-    try {
-      const data = new FormData();
-      data.append("name", formData.name);
-      data.append("contact", formData.contact);
-      data.append("service", formData.service);
-      data.append("message", formData.message);
-      data.append("_subject", "Nouvelle demande — ETS Website");
+    const whatsappMsg = `Bonjour ETS,%0A%0ANom: ${encodeURIComponent(
+      formData.name
+    )}%0AContact: ${encodeURIComponent(formData.contact)}%0AService: ${encodeURIComponent(
+      formData.service
+    )}%0AMessage: ${encodeURIComponent(formData.message)}`;
 
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", contact: "", service: "", message: "" });
-      } else {
-        throw new Error("Server error");
-      }
-    } catch {
-      const whatsappMsg = `Bonjour ETS,%0A%0ANom: ${encodeURIComponent(
-        formData.name
-      )}%0AContact: ${encodeURIComponent(formData.contact)}%0AService: ${encodeURIComponent(
-        formData.service
-      )}%0AMessage: ${encodeURIComponent(formData.message)}`;
-      
-      setErrorMessage(t.errorMsg);
-      setStatus("error");
-    }
+    // Ouvrir WhatsApp dans un nouvel onglet avec le message pré-rempli
+    window.open(`https://wa.me/2250171856777?text=${whatsappMsg}`, "_blank", "noopener,noreferrer");
+    
+    setStatus("success");
+    setFormData({ name: "", contact: "", service: "", message: "" });
   };
 
   return (

@@ -42,11 +42,10 @@ export default function Header({ lang, setLang }: HeaderProps) {
   };
 
   const navItems = [
-    { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero" },
-    { label: t.services.formation.title, id: "services" },
-    { label: t.translationCert.title.split("?")[0].replace("Need a", "").trim(), id: "translation" },
-    { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about" },
-    { label: "Contact", id: "contact" }
+    { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero", href: "/" },
+    { label: "Services", id: "services", href: "/#services" },
+    { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about", href: "/a-propos" },
+    { label: "Contact", id: "contact", href: "/#contact" }
   ];
 
   const languages: { code: LanguageType; label: string }[] = [
@@ -68,7 +67,7 @@ export default function Header({ lang, setLang }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center gap-3 group">
+        <a href="/" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center gap-3 group">
           <Image
             src="/logo.png"
             alt="Logo ETS"
@@ -77,12 +76,6 @@ export default function Header({ lang, setLang }: HeaderProps) {
             className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-105"
             priority
           />
-          <div className="flex flex-col">
-            <span className="font-bold text-xl tracking-wider text-brand-blue leading-none">E·T·S</span>
-            <span className="text-[9px] font-semibold tracking-wider text-brand-blue uppercase mt-1 pt-1 border-t border-brand-blue/30">
-              English and Translation Services
-            </span>
-          </div>
         </a>
 
         {/* Desktop Nav */}
@@ -90,7 +83,7 @@ export default function Header({ lang, setLang }: HeaderProps) {
           {navItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={item.href}
               onClick={(e) => handleScrollTo(e, item.id)}
               className="font-medium text-sm text-text-dark hover:text-brand-blue relative py-2 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:height-[2px] after:bg-brand-green after:transition-all after:duration-300 hover:after:w-full"
             >
@@ -142,7 +135,7 @@ export default function Header({ lang, setLang }: HeaderProps) {
           </a>
 
           <a
-            href="#contact"
+            href="/#contact"
             onClick={(e) => handleScrollTo(e, "contact")}
             className="bg-brand-green text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-lg shadow-brand-green/20 hover:bg-brand-green-dark transition-all duration-300 hover:scale-105"
           >
@@ -187,7 +180,7 @@ export default function Header({ lang, setLang }: HeaderProps) {
           {navItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={item.href}
               onClick={(e) => handleScrollTo(e, item.id)}
               className="font-medium text-base text-text-dark hover:text-brand-blue py-1 transition-colors border-b border-gray-50 last:border-0"
             >
@@ -203,7 +196,7 @@ export default function Header({ lang, setLang }: HeaderProps) {
               <span>+225 05 08 79 22 88</span>
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={(e) => handleScrollTo(e, "contact")}
               className="bg-brand-green text-white text-center font-semibold py-3 rounded-full hover:bg-brand-green-dark transition-colors"
             >
