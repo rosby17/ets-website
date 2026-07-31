@@ -1,0 +1,82 @@
+@import url('https://api.fontshare.com/v2/css?f[]=neue-montreal@400,500,600,700,800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #79b914;
+  --color-brand-green-dark: #5f9410;
+  --color-brand-blue: #1f71b6;
+  --color-brand-blue-dark: #1e4faa;
+  --color-navy: #1B2A44;
+  --color-bg-light: #F6F7F5;
+  --color-text-dark: #2B2B2B;
+  --font-sans: 'Neue Montreal', sans-serif;
+  --font-neue: 'Neue Montreal', sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #2B2B2B;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Neue Montreal', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom premium visual styles */
+
+.clip-diagonal-hero {
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 768px) {
+  .clip-diagonal-hero {
+    clip-path: none;
+  }
+}
+
+.clip-diagonal-bottom-left {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.clip-diagonal-top-bottom {
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+}
+
+.clip-diagonal-top {
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+}
+
+@media (max-width: 768px) {
+  .clip-diagonal-bottom-left,
+  .clip-diagonal-top-bottom,
+  .clip-diagonal-top {
+    clip-path: none;
+  }
+}
+
+/* Custom premium visual styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-panel-dark {
+  background: rgba(27, 42, 68, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Micro-animations */
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+.pulse-soft {
+  animation: pulse-soft 2s infinite ease-in-out;
+}
