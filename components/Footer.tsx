@@ -3,9 +3,15 @@
 import React from "react";
 import Image from "next/image";
 import { MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { LanguageType, translations } from "./translations";
 
-export default function Footer() {
+interface FooterProps {
+  lang: LanguageType;
+}
+
+export default function Footer({ lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const t = translations[lang].footer;
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -60,11 +66,19 @@ export default function Footer() {
     },
   ];
 
+  const navItems = [
+    { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero" },
+    { label: translations[lang].services.formation.title, id: "services" },
+    { label: translations[lang].translationCert.title.split("?")[0].replace("Need a", "").trim(), id: "translation" },
+    { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about" },
+    { label: "Contact", id: "contact" }
+  ];
+
   return (
     <footer className="bg-navy text-gray-400 pt-16 pb-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
-          {/* Logo & Slogan Column */}
+          {/* Logo & Slogan */}
           <div className="lg:col-span-4 flex flex-col items-start gap-4">
             <a href="#hero" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center gap-3">
               <Image
@@ -82,7 +96,7 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-sm text-gray-400 leading-relaxed mt-2 max-w-sm">
-              « Votre passerelle vers une communication mondiale sans frontières. Cabinet agréé à Abidjan pour toutes vos formations et traductions certifiées. »
+              {t.tagline}
             </p>
             {/* Social Icons */}
             <div className="flex gap-3 mt-3">
@@ -104,51 +118,46 @@ export default function Footer() {
           {/* Quick links */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <h4 className="text-xs font-bold tracking-wider text-white uppercase border-b border-white/5 pb-2">
-              Navigation
+              {t.navTitle}
             </h4>
             <nav className="flex flex-col gap-2.5 text-sm">
-              <a href="#hero" onClick={(e) => handleScrollTo(e, "hero")} className="hover:text-brand-green transition-colors">
-                Accueil
-              </a>
-              <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
-                Services
-              </a>
-              <a href="#translation" onClick={(e) => handleScrollTo(e, "translation")} className="hover:text-brand-green transition-colors">
-                Traduction certifiée
-              </a>
-              <a href="#about" onClick={(e) => handleScrollTo(e, "about")} className="hover:text-brand-green transition-colors">
-                À propos
-              </a>
-              <a href="#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
-                Contact
-              </a>
+              {navItems.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleScrollTo(e, item.id)}
+                  className="hover:text-brand-green transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
             </nav>
           </div>
 
           {/* Services Column */}
           <div className="lg:col-span-3 flex flex-col gap-4">
             <h4 className="text-xs font-bold tracking-wider text-white uppercase border-b border-white/5 pb-2">
-              Prestations
+              {t.servicesTitle}
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm" role="list">
               <li>
                 <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
-                  Formation en langues
+                  {translations[lang].services.formation.title}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
-                  Interprétariat de conférence
+                  {translations[lang].services.interpretation.title}
                 </a>
               </li>
               <li>
                 <a href="#translation" onClick={(e) => handleScrollTo(e, "translation")} className="hover:text-brand-green transition-colors">
-                  Traduction assermentée
+                  {translations[lang].services.traduction.title}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
-                  Immersion &amp; Séjours
+                  {translations[lang].services.sejours.title}
                 </a>
               </li>
               <li>
@@ -159,10 +168,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Details Column */}
+          {/* Contact Details */}
           <div className="lg:col-span-3 flex flex-col gap-4">
             <h4 className="text-xs font-bold tracking-wider text-white uppercase border-b border-white/5 pb-2">
-              Cabinet ETS
+              {t.contactTitle}
             </h4>
             <div className="flex flex-col gap-3 text-sm">
               <div className="flex items-start gap-2.5">
@@ -191,16 +200,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Lower footer segment */}
+        {/* Lower footer */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center">
-          <span>© {currentYear} English and Translation Services (ETS). Tous droits réservés.</span>
+          <span>© {currentYear} {t.copyright}</span>
           <div className="flex gap-4">
             <a href="#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
-              Mentions légales
+              {t.legalLink}
             </a>
             <span>·</span>
             <a href="#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
-              Confidentialité
+              {t.privacyLink}
             </a>
           </div>
         </div>

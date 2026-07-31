@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import Flag from "./Flag";
+import { LanguageType, translations } from "./translations";
 
 interface StatItemProps {
   end: number;
@@ -36,7 +37,7 @@ function Counter({ end, label, suffix = "" }: StatItemProps) {
 
     let start = 0;
     const duration = 1200; // ms
-    const increment = end / (duration / 16); // ~60fps
+    const increment = end / (duration / 16);
     const timer = setInterval(() => {
       start += increment;
       if (start >= end) {
@@ -63,14 +64,20 @@ function Counter({ end, label, suffix = "" }: StatItemProps) {
   );
 }
 
-export default function TrustBand() {
+interface TrustBandProps {
+  lang: LanguageType;
+}
+
+export default function TrustBand({ lang }: TrustBandProps) {
+  const t = translations[lang].trustBand;
+
   return (
     <section id="trust" className="bg-bg-light border-y border-gray-100 py-8 sm:py-10">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-8">
         {/* Language pills section */}
         <div className="flex flex-col items-center gap-4 w-full">
           <span className="text-xs font-bold tracking-widest text-brand-blue/70 uppercase">
-            Langues d&apos;expertise
+            {t.title}
           </span>
           <div className="flex flex-wrap justify-center gap-3">
             {[
@@ -80,17 +87,35 @@ export default function TrustBand() {
               { code: "PT" as const, name: "Portugais" },
               { code: "DE" as const, name: "Allemand" },
               { code: "CN" as const, name: "Chinois" },
-            ].map((lang) => (
-              <div
-                key={lang.code}
-                className="inline-flex items-center gap-2.5 px-4 py-2 bg-white rounded-full border border-gray-200/60 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 group cursor-default"
-              >
-                <Flag country={lang.code} className="w-5 h-3.5 object-cover" />
-                <span className="text-sm font-semibold text-text-dark group-hover:text-brand-blue transition-colors">
-                  {lang.name}
-                </span>
-              </div>
-            ))}
+            ].map((l) => {
+              const label =
+                lang === "fr"
+                  ? l.name
+                  : lang === "en"
+                  ? l.name === "Français"
+                    ? "French"
+                    : l.name === "Anglais"
+                    ? "English"
+                    : l.name === "Espagnol"
+                    ? "Spanish"
+                    : l.name === "Portugais"
+                    ? "Portuguese"
+                    : l.name === "Allemand"
+                    ? "German"
+                    : "Chinese"
+                  : l.name; // Use base name fallback for other languages to keep it clean
+              return (
+                <div
+                  key={l.code}
+                  className="inline-flex items-center gap-2.5 px-4 py-2 bg-white rounded-full border border-gray-200/60 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 group cursor-default"
+                >
+                  <Flag country={l.code} className="w-5 h-3.5 object-cover" />
+                  <span className="text-sm font-semibold text-text-dark group-hover:text-brand-blue transition-colors">
+                    {label}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -99,10 +124,10 @@ export default function TrustBand() {
 
         {/* Stats counter section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl divide-x divide-gray-200/80 max-md:divide-x-0">
-          <Counter end={6} label="Langues maîtrisées" suffix="+" />
-          <Counter end={3} label="Centres à Abidjan" />
-          <Counter end={4} label="Domaines d'expertise" />
-          <Counter end={100} label="Validité officielle" suffix="%" />
+          <Counter end={6} label={t.languages} suffix="+" />
+          <Counter end={3} label={t.centers} />
+          <Counter end={4} label={t.areas} />
+          <Counter end={100} label={t.validity} suffix="%" />
         </div>
       </div>
     </section>

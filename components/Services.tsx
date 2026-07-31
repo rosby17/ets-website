@@ -2,66 +2,56 @@
 
 import React from "react";
 import { GraduationCap, Mic, Languages, Plane, CheckCircle2, ArrowRight } from "lucide-react";
+import { LanguageType, translations } from "./translations";
 
-export default function Services() {
+interface ServicesProps {
+  lang: LanguageType;
+}
+
+export default function Services({ lang }: ServicesProps) {
+  const t = translations[lang].services;
+
   const services = [
     {
       id: "formation",
-      title: "Formation",
-      description: "Des formations linguistiques intensives et sur mesure pour booster votre profil.",
+      title: t.formation.title,
+      description: t.formation.desc,
       icon: GraduationCap,
       color: "blue",
-      list: [
-        "Cours d'Anglais intensifs",
-        "Préparation aux tests (TOEFL, TOEIC, IELTS, GMAT…)",
-        "Préparation aux entretiens (embauche, visa)",
-        "Formation en Traduction et interprétation",
-        "Cours de Français, Chinois, Espagnol, Allemand",
-        "Séjour linguistique à l'étranger",
-      ],
-      note: "💡 Cours disponibles en ligne ou en présentiel",
-      whatsapp: "https://wa.me/2250171856777?text=Bonjour%2C+je+suis+int%C3%A9ress%C3%A9(e)+par+vos+services+de+Formation.",
+      list: t.formation.list,
+      note: t.formation.note,
+      cta: t.formation.cta,
+      whatsapp: `https://wa.me/2250171856777?text=${encodeURIComponent(t.formation.waText)}`,
     },
     {
       id: "interpretation",
-      title: "Interprétariat",
-      description: "Accompagnement linguistique de haut niveau pour tous vos événements d'affaires.",
+      title: t.interpretation.title,
+      description: t.interpretation.desc,
       icon: Mic,
       color: "green",
-      list: [
-        "Interprétation simultanée",
-        "Interprétation consécutive",
-        "Escorte bilingue",
-        "Matériel de conférence (cabine insonorisée, récepteurs, console…)",
-      ],
-      whatsapp: "https://wa.me/2250171856777?text=Bonjour%2C+je+suis+int%C3%A9ress%C3%A9(e)+par+vos+services+d%27Interpr%C3%A9tariat.",
+      list: t.interpretation.list,
+      cta: t.interpretation.cta,
+      whatsapp: `https://wa.me/2250171856777?text=${encodeURIComponent(t.interpretation.waText)}`,
     },
     {
       id: "traduction",
-      title: "Traduction",
-      description: "Traduction rigoureuse et certifiée de tous vos documents administratifs et techniques.",
+      title: t.traduction.title,
+      description: t.traduction.desc,
       icon: Languages,
       color: "blue",
-      list: [
-        "Traduction certifiée de tout type de documents",
-        "Transcription et traduction de vidéos et audios",
-        "Sous-titrage et traduction de vidéos",
-      ],
-      whatsapp: "https://wa.me/2250171856777?text=Bonjour%2C+je+suis+int%C3%A9ress%C3%A9(e)+par+vos+services+de+Traduction.",
+      list: t.traduction.list,
+      cta: t.traduction.cta,
+      whatsapp: `https://wa.me/2250171856777?text=${encodeURIComponent(t.traduction.waText)}`,
     },
     {
       id: "sejours",
-      title: "Séjours Linguistiques",
-      description: "Immersion totale à l'étranger pour accélérer votre apprentissage de l'anglais.",
+      title: t.sejours.title,
+      description: t.sejours.desc,
       icon: Plane,
       color: "green",
-      list: [
-        "Partez en immersion totale à l'étranger",
-        "Accélérez votre apprentissage linguistique",
-        "Découvrez de nouvelles cultures en toute sécurité",
-        "Programmes personnalisés selon votre niveau et vos objectifs",
-      ],
-      whatsapp: "https://wa.me/2250171856777?text=Bonjour%2C+je+suis+int%C3%A9ress%C3%A9(e)+par+vos+S%C3%A9jours+Linguistiques.",
+      list: t.sejours.list,
+      cta: t.sejours.cta,
+      whatsapp: `https://wa.me/2250171856777?text=${encodeURIComponent(t.sejours.waText)}`,
     },
   ];
 
@@ -71,15 +61,14 @@ export default function Services() {
         {/* Title */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-brand-green uppercase block mb-2">
-            Ce que nous offrons
+            {t.label}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
-            NOS SERVICES LINGUISTIQUES
+            {t.title}
           </h2>
           <div className="w-16 h-1 bg-brand-blue mx-auto my-4 rounded-full"></div>
           <p className="text-sm sm:text-base text-gray-500 font-medium">
-            Quatre piliers d&apos;expertise conçus pour répondre avec précision à toutes vos exigences de
-            communication mondiale.
+            {t.subtitle}
           </p>
         </div>
 
@@ -94,12 +83,9 @@ export default function Services() {
                 className="bg-white rounded-3xl p-8 border border-gray-200/50 shadow-sm hover:shadow-xl hover:border-brand-blue/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  {/* Icon Block - Minimalist and elegant */}
                   <div
                     className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
-                      isBlue
-                        ? "bg-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white"
-                        : "bg-brand-green/10 text-brand-green group-hover:bg-brand-green group-hover:text-white"
+                      isBlue ? "bg-brand-blue/10 text-brand-blue" : "bg-brand-green/10 text-brand-green"
                     }`}
                   >
                     <Icon className="w-7 h-7" />
@@ -135,7 +121,7 @@ export default function Services() {
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-bold text-sm transition-all duration-300"
                 >
-                  <span>Demander un renseignement</span>
+                  <span>{service.cta}</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </article>

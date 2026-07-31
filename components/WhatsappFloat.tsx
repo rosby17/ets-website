@@ -1,12 +1,28 @@
 "use client";
 
 import React from "react";
+import { LanguageType } from "./translations";
 
-export default function WhatsappFloat() {
+interface WhatsappFloatProps {
+  lang: LanguageType;
+}
+
+export default function WhatsappFloat({ lang }: WhatsappFloatProps) {
+  const tooltips = {
+    fr: "Discutez avec nous !",
+    en: "Chat with us!",
+    es: "¡Chatea con nosotros!",
+    pt: "Converse conosco!",
+    de: "Chatten Sie mit uns!",
+    zh: "与我们在线沟通！",
+  };
+
+  const text = tooltips[lang] || tooltips.fr;
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group">
       <span className="bg-white text-navy text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 translate-x-3 group-hover:translate-x-0 pointer-events-none transition-all duration-300 select-none">
-        Discutez avec nous !
+        {text}
       </span>
       <a
         href="https://wa.me/2250171856777?text=Bonjour+ETS%2C+je+souhaite+des+informations+sur+vos+services."

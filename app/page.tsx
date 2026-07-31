@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import TrustBand from "../components/TrustBand";
@@ -13,54 +15,56 @@ import Testimonials from "../components/Testimonials";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import WhatsappFloat from "../components/WhatsappFloat";
+import { LanguageType } from "../components/translations";
 
 export default function Home() {
+  const [lang, setLang] = useState<LanguageType>("fr");
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header / Nav */}
-      <Header />
+      {/* Navigation header avec sélecteur de langue */}
+      <Header lang={lang} setLang={setLang} />
 
-      {/* Main Sections */}
       <main className="flex-grow">
-        {/* 1. Hero */}
-        <Hero />
+        {/* Hero Section */}
+        <Hero lang={lang} />
 
-        {/* 2. Bandeau de confiance (Langues et stats) */}
-        <TrustBand />
+        {/* Chiffres clés & pilules des langues d'expertise */}
+        <TrustBand lang={lang} />
 
-        {/* 3. Qui sommes-nous */}
-        <About />
+        {/* Qui sommes-nous */}
+        <About lang={lang} />
 
-        {/* 4. Nos services */}
-        <Services />
+        {/* Grille des services */}
+        <Services lang={lang} />
 
-        {/* 5. Traduction certifiée - Offre phare */}
-        <TranslationCert />
+        {/* Section Traduction Certifiée détaillée */}
+        <TranslationCert lang={lang} />
 
-        {/* 6. Qui accompagnons-nous */}
-        <Targets />
+        {/* Profils cibles accompagnés */}
+        <Targets lang={lang} />
 
-        {/* 7. Nos engagements */}
-        <Engagements />
+        {/* Engagements de qualité */}
+        <Engagements lang={lang} />
 
-        {/* 8. Programme phare */}
-        <ProgramPhare />
+        {/* Programme spécial Holiday, Fun & English */}
+        <ProgramPhare lang={lang} />
 
-        {/* 9. Nos centres */}
-        <Centers />
+        {/* Adresses des centres physiques */}
+        <Centers lang={lang} />
 
-        {/* 10. Témoignages */}
-        <Testimonials />
+        {/* Témoignages clients */}
+        <Testimonials lang={lang} />
 
-        {/* 11. Formulaire de contact */}
-        <ContactForm />
+        {/* Formulaire de contact Formspree / WhatsApp */}
+        <ContactForm lang={lang} />
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer lang={lang} />
 
-      {/* Bouton WhatsApp flottant */}
-      <WhatsappFloat />
+      {/* WhatsApp bulle flottante */}
+      <WhatsappFloat lang={lang} />
     </div>
   );
 }

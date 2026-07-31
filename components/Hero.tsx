@@ -3,8 +3,15 @@
 import React from "react";
 import Image from "next/image";
 import { MessageSquare, PhoneCall, Sparkles } from "lucide-react";
+import { LanguageType, translations } from "./translations";
 
-export default function Hero() {
+interface HeroProps {
+  lang: LanguageType;
+}
+
+export default function Hero({ lang }: HeroProps) {
+  const t = translations[lang].hero;
+
   const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const target = document.getElementById("contact");
@@ -24,7 +31,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen pt-28 pb-16 flex items-center bg-navy text-white overflow-hidden"
     >
-      {/* SVG Topographic curves overlay (low opacity) */}
+      {/* SVG Topographic curves overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -39,21 +46,15 @@ export default function Hero() {
             stroke="#D9CBAE"
             strokeWidth="2"
           />
-          <path
-            d="M -100,400 C 200,300 500,500 800,350 C 1100,200 1300,600 1600,450 C 1900,300 2100,400 2300,300"
-            fill="none"
-            stroke="#D9CBAE"
-            strokeWidth="1.5"
-          />
         </svg>
       </div>
 
-      {/* Decorative colored polygon shape in background for large screens */}
+      {/* Decorative green shape */}
       <div className="hidden lg:block absolute top-0 right-0 w-[45%] h-full bg-brand-green clip-diagonal-hero z-0"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Text Column */}
+          {/* Text block */}
           <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 glass-panel">
               <span className="relative flex h-2 w-2">
@@ -61,22 +62,44 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
               </span>
               <span className="text-xs font-semibold uppercase tracking-wider text-brand-green">
-                Cabinet de langues agréé · Abidjan
+                {t.badge}
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-              Votre passerelle vers une{" "}
-              <span className="text-brand-green relative inline-block">
-                communication
-                <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-green/20 rounded-full"></span>
-              </span>{" "}
-              mondiale sans frontières
+              {lang === "fr" ? (
+                <>
+                  Votre passerelle vers une{" "}
+                  <span className="text-brand-green relative inline-block">
+                    communication
+                    <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-green/20 rounded-full"></span>
+                  </span>{" "}
+                  mondiale sans frontières
+                </>
+              ) : lang === "en" ? (
+                <>
+                  Your gateway to{" "}
+                  <span className="text-brand-green relative inline-block">
+                    global communication
+                    <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-green/20 rounded-full"></span>
+                  </span>{" "}
+                  without borders
+                </>
+              ) : lang === "zh" ? (
+                <>
+                  连接全球，助力{" "}
+                  <span className="text-brand-green relative inline-block">
+                    无国界沟通
+                    <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-green/20 rounded-full"></span>
+                  </span>
+                </>
+              ) : (
+                t.title
+              )}
             </h1>
 
             <p className="text-lg text-gray-300 max-w-xl leading-relaxed">
-              Formation en langues, traduction certifiée et interprétariat — par des traducteurs et
-              interprètes assermentés.
+              {t.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
@@ -86,19 +109,19 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2.5 bg-brand-green text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-brand-green/30 hover:bg-brand-green-dark transition-all duration-300 hover:scale-105"
               >
                 <MessageSquare className="w-5 h-5" />
-                <span>Demander un devis</span>
+                <span>{t.ctaDevis}</span>
               </a>
               <a
                 href="tel:+2250508792288"
                 className="inline-flex items-center justify-center gap-2.5 border-2 border-white/60 hover:border-white text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/10"
               >
                 <PhoneCall className="w-5 h-5 text-brand-green" />
-                <span>Appeler maintenant</span>
+                <span>{t.ctaCall}</span>
               </a>
             </div>
           </div>
 
-          {/* Right Image Column */}
+          {/* Image Block */}
           <div className="lg:col-span-5 relative flex justify-center w-full">
             <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 bg-navy/80">
               <Image
@@ -109,14 +132,13 @@ export default function Hero() {
                 className="object-cover object-top"
                 priority
               />
-              {/* Glassmorphic card overlay for wow factor */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-panel-dark flex items-center gap-3">
                 <div className="p-2.5 bg-brand-green/20 text-brand-green rounded-xl">
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-gray-400 font-medium">Validité officielle</div>
-                  <div className="text-sm font-bold text-white">Ambassades &amp; Ministères</div>
+                  <div className="text-xs text-gray-400 font-medium">{t.validity}</div>
+                  <div className="text-sm font-bold text-white">{t.min}</div>
                 </div>
               </div>
             </div>

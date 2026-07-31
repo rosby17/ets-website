@@ -2,8 +2,15 @@
 
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { LanguageType, translations } from "./translations";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  lang: LanguageType;
+}
+
+export default function ContactForm({ lang }: ContactFormProps) {
+  const t = translations[lang].contact;
+
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
@@ -26,7 +33,7 @@ export default function ContactForm() {
     setErrorMessage("");
 
     if (!formData.name || !formData.contact || !formData.service || !formData.message) {
-      setErrorMessage("Veuillez remplir tous les champs obligatoires.");
+      setErrorMessage(t.errorMsg);
       setStatus("error");
       return;
     }
@@ -39,7 +46,6 @@ export default function ContactForm() {
       data.append("message", formData.message);
       data.append("_subject", "Nouvelle demande — ETS Website");
 
-      // Replace this with real Formspree endpoint when client provides it
       const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
         method: "POST",
         body: data,
@@ -50,19 +56,16 @@ export default function ContactForm() {
         setStatus("success");
         setFormData({ name: "", contact: "", service: "", message: "" });
       } else {
-        throw new Error("Erreur de serveur");
+        throw new Error("Server error");
       }
     } catch {
-      // Fallback message to WhatsApp
       const whatsappMsg = `Bonjour ETS,%0A%0ANom: ${encodeURIComponent(
         formData.name
       )}%0AContact: ${encodeURIComponent(formData.contact)}%0AService: ${encodeURIComponent(
         formData.service
       )}%0AMessage: ${encodeURIComponent(formData.message)}`;
       
-      setErrorMessage(
-        `Une erreur est survenue lors de l'envoi. Vous pouvez nous contacter directement sur WhatsApp.`
-      );
+      setErrorMessage(t.errorMsg);
       setStatus("error");
     }
   };
@@ -73,25 +76,25 @@ export default function ContactForm() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-brand-green uppercase block mb-2">
-            Passez à l&apos;action
+            {t.label}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
-            Prêt à franchir le pas ?
+            {t.title}
           </h2>
           <div className="w-16 h-1 bg-brand-blue mx-auto my-4 rounded-full"></div>
           <p className="text-sm sm:text-base text-gray-500 font-medium">
-            Contactez notre équipe dès aujourd&apos;hui. Nous étudions votre projet et vous répondons rapidement.
+            {t.subtitle}
           </p>
         </div>
 
         {/* Contact Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
-          {/* Left Panel (Contact Details in Brand Green Card) */}
+          {/* Left Panel */}
           <div className="lg:col-span-5 bg-brand-green text-white rounded-3xl p-8 sm:p-10 shadow-lg shadow-brand-green/10 flex flex-col justify-between h-full">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">Coordonnées</h3>
+              <h3 className="text-xl font-bold text-white mb-2">{t.sidebarTitle}</h3>
               <p className="text-sm text-white/95 leading-relaxed mb-8">
-                Notre secrétariat est à votre entière disposition pour toute demande de renseignement.
+                {t.sidebarSub}
               </p>
 
               <div className="flex flex-col gap-6">
@@ -100,7 +103,7 @@ export default function ContactForm() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-white/80 uppercase">Téléphone</span>
+                    <span className="text-[10px] font-bold text-white/80 uppercase">{t.telLabel}</span>
                     <a href="tel:+2250508792288" className="text-sm sm:text-base font-bold text-white hover:opacity-90">
                       +225 05 08 79 22 88
                     </a>
@@ -114,7 +117,7 @@ export default function ContactForm() {
                     </svg>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-white/80 uppercase">WhatsApp</span>
+                    <span className="text-[10px] font-bold text-white/80 uppercase">{t.waLabel}</span>
                     <a href="https://wa.me/2250171856777" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base font-bold text-white hover:opacity-90">
                       +225 01 71 85 67 77
                     </a>
@@ -126,7 +129,7 @@ export default function ContactForm() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-white/80 uppercase">Email</span>
+                    <span className="text-[10px] font-bold text-white/80 uppercase">{t.mailLabel}</span>
                     <a href="mailto:englishandtranslations2023@gmail.com" className="text-sm sm:text-base font-bold text-white hover:opacity-90 break-all">
                       englishandtranslations2023@gmail.com
                     </a>
@@ -138,7 +141,7 @@ export default function ContactForm() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-white/80 uppercase">Adresses</span>
+                    <span className="text-[10px] font-bold text-white/80 uppercase">{t.addrLabel}</span>
                     <span className="text-xs sm:text-sm font-bold text-white">
                       Angré 22e · Riviera 3 · Yopougon Bel-Air
                     </span>
@@ -148,22 +151,22 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Right Panel (HTML Contact Form) */}
+          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="lg:col-span-7 flex flex-col gap-5 w-full bg-bg-light/40 border border-gray-150 rounded-3xl p-8 sm:p-10 shadow-sm"
           >
             <div>
-              <h3 className="text-xl font-bold text-navy mb-1">Envoyez-nous votre demande</h3>
+              <h3 className="text-xl font-bold text-navy mb-1">{t.formTitle}</h3>
               <p className="text-xs text-gray-500 font-medium">
-                Nous étudions votre projet linguistique et vous contactons dans les 24h.
+                {t.formSub}
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="name" className="text-xs font-bold text-navy">
-                  Nom complet *
+                  {t.nameLabel}
                 </label>
                 <input
                   type="text"
@@ -171,14 +174,14 @@ export default function ContactForm() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Votre nom"
+                  placeholder={t.namePlaceholder}
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/15"
                   required
                 />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="contact" className="text-xs font-bold text-navy">
-                  Email ou Téléphone *
+                  {t.contactLabel}
                 </label>
                 <input
                   type="text"
@@ -186,7 +189,7 @@ export default function ContactForm() {
                   name="contact"
                   value={formData.contact}
                   onChange={handleChange}
-                  placeholder="Email ou numéro"
+                  placeholder={t.contactPlaceholder}
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/15"
                   required
                 />
@@ -195,7 +198,7 @@ export default function ContactForm() {
 
             <div className="flex flex-col gap-1.5">
               <label htmlFor="service" className="text-xs font-bold text-navy">
-                Service souhaité *
+                {t.serviceLabel}
               </label>
               <select
                 id="service"
@@ -206,26 +209,26 @@ export default function ContactForm() {
                 required
               >
                 <option value="" disabled>
-                  Choisissez un service…
+                  {t.serviceSelect}
                 </option>
-                <option value="Formation">Formation en langues</option>
-                <option value="Traduction">Traduction certifiée</option>
-                <option value="Interprétariat">Interprétariat</option>
-                <option value="Séjour linguistique">Séjour linguistique</option>
-                <option value="Autre">Autre</option>
+                {t.serviceOptions.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
               </select>
             </div>
 
             <div className="flex flex-col gap-1.5">
               <label htmlFor="message" className="text-xs font-bold text-navy">
-                Message *
+                {t.messageLabel}
               </label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Décrivez précisément votre besoin..."
+                placeholder={t.messagePlaceholder}
                 rows={4}
                 className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/15 resize-none"
                 required
@@ -235,7 +238,7 @@ export default function ContactForm() {
             {/* Status alerts */}
             {status === "success" && (
               <div className="p-4 bg-brand-green/10 border border-brand-green rounded-xl text-sm font-semibold text-brand-green text-center">
-                ✅ Votre demande a été transmise avec succès ! Nous vous recontacterons très rapidement.
+                {t.successMsg}
               </div>
             )}
 
@@ -248,7 +251,7 @@ export default function ContactForm() {
                   rel="noopener noreferrer"
                   className="text-xs underline font-bold hover:text-red-700"
                 >
-                  Contacter notre équipe sur WhatsApp en un clic →
+                  {t.waLinkText}
                 </a>
               </div>
             )}
@@ -265,7 +268,7 @@ export default function ContactForm() {
                 </>
               ) : (
                 <>
-                  <span>Envoyer ma demande</span>
+                  <span>{t.submitBtn}</span>
                   <Send className="w-4 h-4" />
                 </>
               )}
