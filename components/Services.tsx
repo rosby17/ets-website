@@ -117,7 +117,7 @@ export default function Services({ lang }: ServicesProps) {
 
                 <a
                   href={`/services/${service.id}`}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-bold text-sm transition-all duration-300"
+                  className="mt-auto self-start inline-flex items-center gap-2 py-2 px-5 rounded-full border border-gray-200 text-brand-blue hover:border-brand-blue hover:bg-brand-blue/5 font-semibold text-sm transition-all duration-300"
                 >
                   <span>Découvrir le service</span>
                   <ArrowRight className="w-4 h-4" />
@@ -125,6 +125,17 @@ export default function Services({ lang }: ServicesProps) {
               </article>
             );
           })}
+        </div>
+
+        {/* Global Voir Plus Button */}
+        <div className="mt-16 text-center">
+          <a
+            href="/services"
+            className="inline-flex items-center gap-3 bg-brand-blue text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg hover:shadow-xl hover:bg-navy transition-all duration-300 hover:-translate-y-1"
+          >
+            <span>Voir tous nos services en détail</span>
+            <ArrowRight className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </section>

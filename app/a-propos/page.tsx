@@ -39,13 +39,49 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Vision & Mission Sections */}
+        {/* Founder Section */}
         <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="bg-navy rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+              <div className="w-56 h-56 md:w-72 md:h-80 shrink-0 rounded-[2rem] bg-gradient-to-br from-brand-blue to-brand-green border-4 border-white/10 overflow-hidden relative shadow-inner">
+                {/* Full portrait placeholder image (African professional) */}
+                <img 
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&auto=format&fit=crop" 
+                  alt="Kouassi Amoulaye - Fondateur" 
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="flex flex-col text-center md:text-left relative z-10 flex-grow">
+                <span className="inline-block px-4 py-1.5 bg-brand-green/20 text-brand-green rounded-full text-sm font-bold uppercase tracking-widest mb-4 self-center md:self-start">
+                  {t.founderTitle}
+                </span>
+                <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-2">
+                  Kouassi Amoulaye
+                </h3>
+                <span className="text-gray-400 text-sm md:text-base mb-8 block font-medium">
+                  {t.founderName}
+                </span>
+                <div className="relative pt-6">
+                  <svg className="absolute top-0 left-0 md:-left-4 w-10 h-10 text-brand-blue/30 -translate-y-2" fill="currentColor" viewBox="0 0 32 32">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.896 3.456-8.352 9.12-8.352 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
+                  </svg>
+                  <p className="text-lg lg:text-xl text-gray-200 italic leading-relaxed relative z-10 pl-2">
+                    {t.founderQuote}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision & Mission Sections */}
+        <section className="py-20 bg-bg-light">
           <div className="max-w-7xl mx-auto px-6">
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
               <div className="order-2 md:order-1 rounded-[2.5rem] overflow-hidden shadow-xl h-72 md:h-96 relative">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&auto=format&fit=crop" alt="Notre Mission" className="w-full h-full object-cover" />
+                {/* African professionals collaborating */}
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1000&auto=format&fit=crop" alt="Notre Mission" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply"></div>
               </div>
               <div className="order-1 md:order-2">
@@ -72,7 +108,8 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="rounded-[2.5rem] overflow-hidden shadow-xl h-72 md:h-96 relative">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&auto=format&fit=crop" alt="Notre Vision" className="w-full h-full object-cover" />
+                {/* African professionals in office */}
+                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1000&auto=format&fit=crop" alt="Notre Vision" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-brand-blue/20 mix-blend-multiply"></div>
               </div>
             </div>
@@ -81,7 +118,7 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values Section */}
-        <section className="py-20 bg-bg-light">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-extrabold text-navy leading-tight">
@@ -94,7 +131,7 @@ export default function AboutPage() {
               {t.values.map((val, idx) => {
                 const Icon = valueIcons[idx] || Gem;
                 return (
-                  <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+                  <div key={idx} className="bg-bg-light p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
                     <div className="w-16 h-16 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                       <Icon className="w-8 h-8" />
                     </div>
@@ -103,41 +140,6 @@ export default function AboutPage() {
                   </div>
                 );
               })}
-            </div>
-          </div>
-        </section>
-
-        {/* Founder Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="bg-navy rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center gap-12 lg:gap-16">
-              <div className="w-56 h-56 md:w-72 md:h-80 shrink-0 rounded-[2rem] bg-gradient-to-br from-brand-blue to-brand-green border-4 border-white/10 overflow-hidden relative shadow-inner">
-                {/* Full portrait placeholder image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop" 
-                  alt="Kouassi Amoulaye - Fondateur" 
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div className="flex flex-col text-center md:text-left relative z-10 flex-grow">
-                <span className="inline-block px-4 py-1.5 bg-brand-green/20 text-brand-green rounded-full text-sm font-bold uppercase tracking-widest mb-4 self-center md:self-start">
-                  {t.founderTitle}
-                </span>
-                <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-2">
-                  Kouassi Amoulaye
-                </h3>
-                <span className="text-gray-400 text-sm md:text-base mb-8 block font-medium">
-                  {t.founderName}
-                </span>
-                <div className="relative">
-                  <svg className="absolute -top-6 -left-6 w-12 h-12 text-brand-blue/30" fill="currentColor" viewBox="0 0 32 32">
-                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.896 3.456-8.352 9.12-8.352 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
-                  </svg>
-                  <p className="text-lg lg:text-xl text-gray-200 italic leading-relaxed relative z-10">
-                    {t.founderQuote}
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>

@@ -173,9 +173,42 @@ export const translations = {
       title: "Témoignages clients",
       subtitle: "La satisfaction de nos clients est le reflet de notre exigence opérationnelle.",
       items: [
-        { name: "Kouamé A.", role: "Étudiant · Université d'Abidjan", quote: "« Grâce à ETS, j'ai obtenu mon TOEIC avec un excellent score. Les formateurs sont très professionnels et pédagogues. Je recommande vivement ! »" },
-        { name: "Mariam K.", role: "Cadre · Secteur bancaire", quote: "« La traduction de mes documents pour l'ambassade a été faite en 48h, avec une qualité irréprochable. Un service rapide et très sérieux. »" },
-        { name: "Directeur Général", role: "Groupe SIPRA · Abidjan", quote: "« ETS a assuré l'interprétation simultanée de notre conférence internationale. Professionnalisme exemplaire, matériel de qualité. Nous travaillerons à nouveau avec eux. »" },
+        { 
+          name: "Kouamé A.", 
+          role: "Étudiant · Université d'Abidjan", 
+          quote: "« Grâce à ETS, j'ai obtenu mon TOEIC avec un excellent score. Les formateurs sont très professionnels et pédagogues. Je recommande vivement ! »",
+          avatar: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=150&h=150&fit=crop"
+        },
+        { 
+          name: "Mariam K.", 
+          role: "Cadre · Secteur bancaire", 
+          quote: "« La traduction de mes documents pour l'ambassade a été faite en 48h, avec une qualité irréprochable. Un service rapide et très sérieux. »",
+          avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1bf38a?w=150&h=150&fit=crop"
+        },
+        { 
+          name: "Ousmane D.", 
+          role: "Directeur Général", 
+          quote: "« ETS a assuré l'interprétation simultanée de notre conférence internationale. Professionnalisme exemplaire, matériel de qualité. Nous travaillerons à nouveau avec eux. »",
+          avatar: "https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?w=150&h=150&fit=crop"
+        },
+        {
+          name: "Sarah M.",
+          role: "Entrepreneure",
+          quote: "« Les séjours linguistiques proposés par ETS sont incroyables. Mon immersion m'a permis de débloquer mon anglais à l'oral en quelques semaines ! »",
+          avatar: "https://images.unsplash.com/photo-1523824922373-10705a63c613?w=150&h=150&fit=crop"
+        },
+        {
+          name: "Jean-Paul T.",
+          role: "Avocat d'affaires",
+          quote: "« La traduction de nos contrats juridiques a été d'une précision absolue. Le respect de la terminologie et la confidentialité sont au rendez-vous. »",
+          avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
+        },
+        {
+          name: "Awa F.",
+          role: "Responsable RH",
+          quote: "« Nous avons confié la formation en anglais de nos cadres à ETS. Les résultats sont remarquables et la méthode est très axée sur la pratique. »",
+          avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop"
+        }
       ],
     },
     contact: {

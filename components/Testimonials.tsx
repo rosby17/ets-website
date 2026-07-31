@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { LanguageType, translations } from "./translations";
 
 interface TestimonialsProps {
@@ -11,59 +11,79 @@ interface TestimonialsProps {
 export default function Testimonials({ lang }: TestimonialsProps) {
   const t = translations[lang].testimonials;
 
-
-
-  const avatars = [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
-    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
-  ];
-
   return (
-    <section id="testimonials" className="py-20 bg-[#f4f7fc]">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Title */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
-            {t.title.includes("font confiance") ? t.title : "Ils nous font confiance"}
-          </h2>
-        </div>
+    <>
+      <style>{`
+        @keyframes scroll-testimonials {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-testimonials {
+          display: flex;
+          width: max-content;
+          animation: scroll-testimonials 40s linear infinite;
+        }
+        .animate-marquee-testimonials:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      
+      <section id="testimonials" className="py-24 bg-white overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-blue/5 via-transparent to-transparent opacity-50"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <span className="text-sm font-bold tracking-widest text-brand-green uppercase block mb-3">
+              {t.label}
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy leading-tight">
+              {t.title}
+            </h2>
+            <div className="w-20 h-1.5 bg-brand-blue mx-auto my-6 rounded-full"></div>
+            <p className="text-base sm:text-lg text-gray-500 font-medium">
+              {t.subtitle}
+            </p>
+          </div>
 
-        {/* Testimonial grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {t.items.map((test, index) => {
-            return (
-              <article
-                key={index}
-                className="bg-white rounded-[1.5rem] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex gap-1.5 mb-6 text-[#7ac11d]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-transparent" strokeWidth={2} />
+          <div className="relative w-full overflow-hidden mask-image-fade py-8">
+            <div className="animate-marquee-testimonials flex gap-8">
+              {/* Duplicate array twice for smooth infinite scrolling */}
+              {[...t.items, ...t.items].map((item, index) => (
+                <article
+                  key={index}
+                  className="bg-bg-light p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col gap-8 relative hover:-translate-y-2 transition-transform duration-300 w-[350px] md:w-[450px] shrink-0"
+                >
+                  <Quote className="absolute top-8 right-8 w-12 h-12 text-brand-blue/10" />
+                  
+                  <div className="flex gap-1 text-brand-green">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className="w-5 h-5 fill-current" />
                     ))}
                   </div>
 
-                  <p className="text-[13px] sm:text-sm text-gray-700 italic leading-relaxed mb-8">
-                    "{test.quote}"
+                  <p className="text-gray-600 text-lg leading-relaxed italic z-10">
+                    {item.quote}
                   </p>
-                </div>
 
-                {/* Author info */}
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[#dbe4ff] flex shrink-0 overflow-hidden">
-                    <img src={avatars[index]} alt={test.name} className="w-full h-full object-cover" />
+                  <div className="mt-auto flex items-center gap-4 border-t border-gray-200/60 pt-6">
+                    {(item as any).avatar && (
+                      <img 
+                        src={(item as any).avatar} 
+                        alt={item.name} 
+                        className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
+                      />
+                    )}
+                    <div>
+                      <h4 className="text-base font-bold text-navy">{item.name}</h4>
+                      <p className="text-sm text-gray-500 font-medium">{item.role}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-navy">{test.name}</span>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
