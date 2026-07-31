@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import TrustBand from "../components/TrustBand";
+import LanguagesBand from "../components/LanguagesBand";
 import About from "../components/About";
 import Services from "../components/Services";
 import TranslationCert from "../components/TranslationCert";
@@ -32,6 +33,9 @@ export default function Home() {
 
         {/* Qui sommes-nous */}
         <About lang={lang} />
+
+        {/* Couverture Mondiale / Langues d'expertise */}
+        <LanguagesBand lang={lang} />
 
         {/* Grille des services */}
         <Services lang={lang} />

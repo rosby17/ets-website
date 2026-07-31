@@ -116,12 +116,10 @@ export default function Services({ lang }: ServicesProps) {
                 </div>
 
                 <a
-                  href={service.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/services/${service.id}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-bold text-sm transition-all duration-300"
                 >
-                  <span>{service.cta}</span>
+                  <span>Découvrir le service</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </article>

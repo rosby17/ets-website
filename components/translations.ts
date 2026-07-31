@@ -48,7 +48,7 @@ export const translations = {
     },
     services: {
       label: "Ce que nous offrons",
-      title: "NOS SERVICES LINGUISTIQUES",
+      title: "Nos services linguistiques",
       subtitle: "Quatre piliers d'expertise conçus pour répondre avec précision à toutes vos exigences de communication mondiale.",
       formation: {
         title: "Formation",
@@ -130,7 +130,7 @@ export const translations = {
     },
     engagements: {
       label: "Notre promesse",
-      title: "NOS ENGAGEMENTS QUALITÉ",
+      title: "Nos engagements qualité",
       list: [
         "Validité officielle garantie auprès de toutes les administrations, ambassades et universités.",
         "Terminologie technique extrêmement précise, adaptée à chaque secteur d'activité.",
@@ -140,7 +140,7 @@ export const translations = {
     },
     programPhare: {
       label: "Programme spécial",
-      title: "NOTRE PROGRAMME PHARE",
+      title: "Notre programme phare",
       season: "Offre saisonnière",
       hfeTitle: "Holiday, Fun & English",
       tagline: "Des vacances formidables pour maîtriser l'anglais en s'amusant.",
@@ -163,14 +163,14 @@ export const translations = {
     },
     centers: {
       label: "Où nous trouver",
-      title: "NOS CENTRES DE FORMATION",
+      title: "Nos centres de formation",
       subtitle: "Trois centres modernes à Abidjan pour vous accueillir et vous accompagner en présentiel.",
       cta: "Contacter ce centre",
       note: "🏫 Tous nos cours sont disponibles en présentiel pour une immersion totale ou en ligne pour plus de flexibilité.",
     },
     testimonials: {
       label: "Ce qu'ils disent",
-      title: "TÉMOIGNAGES CLIENTS",
+      title: "Témoignages clients",
       subtitle: "La satisfaction de nos clients est le reflet de notre exigence opérationnelle.",
       items: [
         { name: "Kouamé A.", role: "Étudiant · Université d'Abidjan", quote: "« Grâce à ETS, j'ai obtenu mon TOEIC avec un excellent score. Les formateurs sont très professionnels et pédagogues. Je recommande vivement ! »" },
@@ -267,7 +267,7 @@ export const translations = {
     },
     services: {
       label: "What We Offer",
-      title: "OUR LANGUAGE SERVICES",
+      title: "Our language services",
       subtitle: "Four pillars of expertise designed to meet all your global communication requirements with absolute precision.",
       formation: {
         title: "Training",
@@ -349,7 +349,7 @@ export const translations = {
     },
     engagements: {
       label: "Our Promise",
-      title: "OUR QUALITY COMMITMENTS",
+      title: "Our quality commitments",
       list: [
         "Official validity guaranteed for all administrations, embassies, and universities.",
         "Extremely precise technical terminology, tailored to each business sector.",
@@ -359,7 +359,7 @@ export const translations = {
     },
     programPhare: {
       label: "Special Program",
-      title: "OUR FLAGSHIP PROGRAM",
+      title: "Our flagship program",
       season: "Seasonal Offer",
       hfeTitle: "Holiday, Fun & English",
       tagline: "Great holidays to master English while having fun.",
@@ -382,14 +382,14 @@ export const translations = {
     },
     centers: {
       label: "Locations",
-      title: "OUR TRAINING CENTERS",
+      title: "Our training centers",
       subtitle: "Three modern centers in Abidjan to welcome you and assist you in person.",
       cta: "Contact This Center",
       note: "🏫 All our courses are available in person for total immersion or online for greater flexibility.",
     },
     testimonials: {
       label: "Testimonials",
-      title: "WHAT OUR CLIENTS SAY",
+      title: "What our clients say",
       subtitle: "Customer satisfaction reflects our strict operational standard.",
       items: [
         { name: "Kouamé A.", role: "Student · Abidjan University", quote: "« Thanks to ETS, I obtained my TOEIC with an excellent score. The trainers are highly professional and pedagogy-oriented. I highly recommend! »" },
@@ -486,7 +486,7 @@ export const translations = {
     },
     services: {
       label: "Lo Que Ofrecemos",
-      title: "NUESTROS SERVICIOS LINGÜÍSTICOS",
+      title: "Nuestros servicios lingüísticos",
       subtitle: "Cuatro pilares de especialización diseñados para responder con precisión a todas sus exigencias de comunicación global.",
       formation: {
         title: "Formación",
@@ -568,7 +568,7 @@ export const translations = {
     },
     engagements: {
       label: "Nuestra Promesa",
-      title: "NUESTROS COMPROMISOS DE CALIDAD",
+      title: "Nuestros compromisos de calidad",
       list: [
         "Validez oficial garantizada ante administraciones, embajadas y universidades.",
         "Terminología técnica sumamente precisa, adaptada a cada sector.",
@@ -578,7 +578,7 @@ export const translations = {
     },
     programPhare: {
       label: "Programa Especial",
-      title: "NUESTRO PROGRAMA DESTACADO",
+      title: "Nuestro programa destacado",
       season: "Oferta de Temporada",
       hfeTitle: "Holiday, Fun & English",
       tagline: "Unas vacaciones formidables para dominar el inglés divirtiéndose.",
@@ -601,14 +601,14 @@ export const translations = {
     },
     centers: {
       label: "Ubicaciones",
-      title: "NUESTROS CENTROS DE FORMACIÓN",
+      title: "Nuestros centros de formación",
       subtitle: "Tres centros modernos en Abiyán para recibirle y acompañarle en persona.",
       cta: "Contactar con este centro",
       note: "🏫 Todos nuestros cursos están disponibles en modalidad presencial para una inmersión total o en línea para mayor flexibilidad.",
     },
     testimonials: {
       label: "Opiniones",
-      title: "TESTIMONIOS DE CLIENTES",
+      title: "Testimonios de clientes",
       subtitle: "La satisfacción de nuestros clientes refleja nuestra exigencia operativa.",
       items: [
         { name: "Kouamé A.", role: "Estudiante · Universidad de Abiyán", quote: "« Gracias a ETS, obtuve mi TOEIC con una excelente puntuación. Los formadores son muy profesionales y dedicados. ¡Lo recomiendo ampliamente! »" },
@@ -705,7 +705,7 @@ export const translations = {
     },
     services: {
       label: "O Que Oferecemos",
-      title: "NOSSOS SERVIÇOS LINGUÍSTICOS",
+      title: "Nossos serviços linguísticos",
       subtitle: "Quatro pilares de especialização concebidos para responder com precisão a todas as suas exigências de comunicação global.",
       formation: {
         title: "Formação",
@@ -787,7 +787,7 @@ export const translations = {
     },
     engagements: {
       label: "Nossa Promessa",
-      title: "NOSSOS COMPROMISSOS DE QUALIDADE",
+      title: "Nossos compromissos de qualidade",
       list: [
         "Validade oficial garantida junto de administrações, embaixadas e universidades.",
         "Terminologia técnica de extrema precisão, adaptada a cada setor.",
@@ -797,7 +797,7 @@ export const translations = {
     },
     programPhare: {
       label: "Programa Especial",
-      title: "NOSSO PROGRAMA PRINCIPAL",
+      title: "Nosso programa principal",
       season: "Oferta de Temporada",
       hfeTitle: "Holiday, Fun & English",
       tagline: "Férias formidáveis para dominar o inglês divertindo-se.",

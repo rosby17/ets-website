@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Info } from "lucide-react";
 import { LanguageType, translations } from "./translations";
 
 interface CentersProps {
@@ -10,6 +10,9 @@ interface CentersProps {
 
 export default function Centers({ lang }: CentersProps) {
   const t = translations[lang].centers;
+
+  // Remove the school emoji if it exists in the string to replace it with a clean icon
+  const cleanNote = t.note.replace("🏫 ", "");
 
   const centers = [
     {
@@ -30,37 +33,39 @@ export default function Centers({ lang }: CentersProps) {
   ];
 
   return (
-    <section id="centers" className="py-20 bg-white">
+    <section id="centers" className="py-24 bg-[#f4f7fc]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-brand-green uppercase block mb-2">
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <span className="text-sm font-bold tracking-widest text-brand-blue uppercase block mb-3">
             {t.label}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy leading-tight">
             {t.title}
           </h2>
-          <div className="w-16 h-1 bg-brand-blue mx-auto my-4 rounded-full"></div>
-          <p className="text-sm sm:text-base text-gray-500 font-medium">
+          <div className="w-20 h-1.5 bg-brand-green mx-auto my-6 rounded-full"></div>
+          <p className="text-base sm:text-lg text-gray-600 font-medium leading-relaxed">
             {t.subtitle}
           </p>
         </div>
 
         {/* Centers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 max-w-6xl mx-auto">
           {centers.map((center, index) => (
             <article
               key={index}
-              className="bg-bg-light rounded-3xl p-8 border border-gray-200/40 shadow-sm hover:shadow-md hover:bg-white hover:border-brand-blue/10 transition-all duration-300 flex flex-col items-center text-center"
+              className="bg-white rounded-[2rem] p-10 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-6">
-                <MapPin className="w-6 h-6" />
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-green opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="w-20 h-20 rounded-full bg-brand-blue/5 group-hover:bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-8 transition-colors duration-500">
+                <MapPin className="w-10 h-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
 
-              <h3 className="text-base font-bold text-navy uppercase tracking-wide mb-2">
+              <h3 className="text-xl font-black text-navy uppercase tracking-wider mb-3">
                 {center.name}
               </h3>
-              <p className="text-sm text-gray-500 mb-6">
+              <p className="text-base text-gray-500 mb-8 font-medium">
                 {center.location}
               </p>
 
@@ -68,19 +73,22 @@ export default function Centers({ lang }: CentersProps) {
                 href={center.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-bold text-xs text-brand-blue hover:text-brand-blue-dark group transition-colors"
+                className="mt-auto w-full inline-flex justify-center items-center gap-2 py-4 bg-gray-50 hover:bg-brand-blue text-navy hover:text-white rounded-xl font-bold text-sm transition-all duration-300"
               >
                 <span>{t.cta}</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight className="w-4 h-4" />
               </a>
             </article>
           ))}
         </div>
 
         {/* Warning Note */}
-        <div className="max-w-3xl mx-auto text-center mt-12 p-4 bg-brand-blue/5 rounded-2xl border border-brand-blue/10">
-          <p className="text-sm text-brand-blue font-semibold">
-            {t.note}
+        <div className="max-w-3xl mx-auto text-center mt-16 p-6 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0">
+            <Info className="w-5 h-5" />
+          </div>
+          <p className="text-sm sm:text-base text-navy font-semibold text-left">
+            {cleanNote}
           </p>
         </div>
       </div>

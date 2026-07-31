@@ -81,77 +81,28 @@ export default function TrustBand({ lang }: TrustBandProps) {
   ];
 
   return (
-    <>
-      <style>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          display: flex;
-          width: max-content;
-          animation: scroll 25s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
-      {/* Stats KPI Section */}
-      <section id="trust-kpi" className="bg-white border-b border-gray-100 py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-5xl mx-auto divide-x divide-gray-100 max-md:divide-x-0">
-            <Counter end={500000} label={lang === 'en' ? "Satisfied Clients" : lang === 'es' ? "Clientes Satisfechos" : lang === 'pt' ? "Clientes Satisfeitos" : lang === 'de' ? "Zufriedene Kunden" : lang === 'zh' ? "满意的客户" : "Clients satisfaits"} suffix="+" />
-            <Counter end={1000} label={lang === 'en' ? "Completed Projects" : lang === 'es' ? "Proyectos Completados" : lang === 'pt' ? "Projetos Concluídos" : lang === 'de' ? "Abgeschlossene Projekte" : lang === 'zh' ? "完成项目" : "Projets complétés"} suffix="+" />
-            <Counter end={10000} label={lang === 'en' ? "Words Translated" : lang === 'es' ? "Palabras Traducidas" : lang === 'pt' ? "Palavras Traduzidas" : lang === 'de' ? "Wörter übersetzt" : lang === 'zh' ? "翻译字数" : "Mots traduits"} suffix="+" />
-            <Counter end={50} label={lang === 'en' ? "Certified Experts" : lang === 'es' ? "Expertos Certificados" : lang === 'pt' ? "Especialistas Certificados" : lang === 'de' ? "Zertifizierte Experten" : lang === 'zh' ? "认证专家" : "Experts"} suffix="+" />
-          </div>
-        </div>
-      </section>
-
-      {/* Languages Expertise Section (Infinite Scroll) */}
-      <section id="trust-languages" className="bg-[#f4f7fc] py-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-8 relative">
-          <span className="text-sm font-bold tracking-widest text-brand-blue uppercase">
-            {t.title}
+    <section id="trust-kpi" className="bg-white border-b border-gray-100 py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-sm font-bold tracking-widest text-brand-blue uppercase block mb-3">
+            En chiffres
           </span>
-          
-          <div className="relative w-full overflow-hidden mask-image-fade">
-            <div className="animate-marquee flex gap-6">
-              {[...langsArray, ...langsArray, ...langsArray].map((l, index) => {
-                const label =
-                  lang === "fr"
-                    ? l.name
-                    : lang === "en"
-                    ? l.name === "Français"
-                      ? "French"
-                      : l.name === "Anglais"
-                      ? "English"
-                      : l.name === "Espagnol"
-                      ? "Spanish"
-                      : l.name === "Portugais"
-                      ? "Portuguese"
-                      : l.name === "Allemand"
-                      ? "German"
-                      : "Chinese"
-                    : l.name; 
-
-                return (
-                  <div
-                    key={`${l.code}-${index}`}
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-2xl border border-gray-200/50 shadow-sm hover:shadow-md transition-all duration-300"
-                  >
-                    <Flag country={l.code} className="w-6 h-4 object-cover" />
-                    <span className="text-base font-semibold text-navy">
-                      {label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy leading-tight">
+            Quelques chiffres clés
+          </h2>
+          <div className="w-20 h-1.5 bg-brand-green mx-auto my-6 rounded-full"></div>
+          <p className="text-base sm:text-lg text-gray-600 font-medium leading-relaxed">
+            Notre expertise se traduit par des résultats concrets et mesurables au quotidien.
+          </p>
         </div>
-      </section>
-    </>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-6xl mx-auto divide-x divide-gray-100 max-md:divide-x-0">
+          <Counter end={500000} label={lang === 'en' ? "Satisfied Clients" : lang === 'es' ? "Clientes Satisfechos" : lang === 'pt' ? "Clientes Satisfeitos" : lang === 'de' ? "Zufriedene Kunden" : lang === 'zh' ? "满意的客户" : "Clients satisfaits"} suffix="+" />
+          <Counter end={1000} label={lang === 'en' ? "Completed Projects" : lang === 'es' ? "Proyectos Completados" : lang === 'pt' ? "Projetos Concluídos" : lang === 'de' ? "Abgeschlossene Projekte" : lang === 'zh' ? "完成项目" : "Projets complétés"} suffix="+" />
+          <Counter end={10000} label={lang === 'en' ? "Words Translated" : lang === 'es' ? "Palabras Traducidas" : lang === 'pt' ? "Palavras Traduzidas" : lang === 'de' ? "Wörter übersetzt" : lang === 'zh' ? "翻译字数" : "Mots traduits"} suffix="+" />
+          <Counter end={50} label={lang === 'en' ? "Certified Experts" : lang === 'es' ? "Expertos Certificados" : lang === 'pt' ? "Especialistas Certificados" : lang === 'de' ? "Zertifizierte Experten" : lang === 'zh' ? "认证专家" : "Experts"} suffix="+" />
+        </div>
+      </div>
+    </section>
   );
 }
