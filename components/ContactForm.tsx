@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { LanguageType, translations } from "./translations";
+import CustomSelect from "./CustomSelect";
 
 interface ContactFormProps {
   lang: LanguageType;
@@ -181,28 +182,15 @@ export default function ContactForm({ lang }: ContactFormProps) {
                 {t.serviceLabel}
               </label>
               <div className="relative">
-                <select
+                <CustomSelect
                   id="service"
                   name="service"
                   value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 pr-10 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/15 appearance-none cursor-pointer text-gray-700"
+                  onChange={(val) => setFormData(prev => ({ ...prev, service: val }))}
+                  options={t.serviceOptions.map(opt => ({ value: opt, label: opt }))}
+                  placeholder={t.serviceSelect}
                   required
-                >
-                  <option value="" disabled>
-                    {t.serviceSelect}
-                  </option>
-                  {t.serviceOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </div>
+                />
               </div>
             </div>
 
