@@ -62,12 +62,22 @@ export default function ProgramPhare({ lang }: ProgramPhareProps) {
                   </div>
                 </div>
 
-                <a
-                  href="/blog/holiday-fun-english"
-                  className="bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-1 inline-flex items-center gap-2"
-                >
-                  <span>Je m'inscris</span>
-                </a>
+                <div className="flex flex-col sm:flex-row gap-4 mt-2">
+                  <a
+                    href="https://wa.me/2250171856777?text=Bonjour%2C+je+souhaite+m%27inscrire+au+programme+Holiday+Fun+%26+English."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-1 inline-flex justify-center items-center gap-2"
+                  >
+                    <span>Je m'inscris</span>
+                  </a>
+                  <a
+                    href="/blog/holiday-fun-english"
+                    className="bg-white hover:bg-gray-50 text-brand-blue border-2 border-brand-blue font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-sm transition-all duration-300 hover:-translate-y-1 inline-flex justify-center items-center gap-2"
+                  >
+                    <span>Voir plus de détails</span>
+                  </a>
+                </div>
               </div>
 
               {/* Right Column: Image */}

@@ -45,6 +45,7 @@ export default function Header({ lang, setLang }: HeaderProps) {
     { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero", href: "/" },
     { label: "Services", id: "services", href: "/services" },
     { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about", href: "/a-propos" },
+    { label: "Blog", id: "blog", href: "/blog" },
     { label: "Contact", id: "contact", href: "/contact" }
   ];
 

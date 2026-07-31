@@ -11,7 +11,13 @@ interface TestimonialsProps {
 export default function Testimonials({ lang }: TestimonialsProps) {
   const t = translations[lang].testimonials;
 
-  const avatars = ["KA", "MK", "DG"];
+
+
+  const avatars = [
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
+  ];
 
   return (
     <section id="testimonials" className="py-20 bg-[#f4f7fc]">
@@ -46,7 +52,9 @@ export default function Testimonials({ lang }: TestimonialsProps) {
 
                 {/* Author info */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[#dbe4ff] flex shrink-0"></div>
+                  <div className="w-12 h-12 rounded-full bg-[#dbe4ff] flex shrink-0 overflow-hidden">
+                    <img src={avatars[index]} alt={test.name} className="w-full h-full object-cover" />
+                  </div>
                   <div className="flex flex-col">
                     <span className="text-sm font-bold text-navy">{test.name}</span>
                   </div>

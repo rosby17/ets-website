@@ -55,16 +55,7 @@ export default function Hero({ lang }: HeroProps) {
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text block */}
-          <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 glass-panel">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-wider text-brand-green">
-                {t.badge}
-              </span>
-            </div>
+          <div className="lg:col-span-6 flex flex-col items-start gap-6 text-left">
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
               {lang === "fr" ? (
@@ -104,15 +95,18 @@ export default function Hero({ lang }: HeroProps) {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
               <a
-                href="#contact"
-                onClick={handleScrollToContact}
+                href="https://wa.me/2250171856777?text=Bonjour%2C+je+souhaite+obtenir+un+devis."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 bg-brand-green text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-brand-green/30 hover:bg-brand-green-dark transition-all duration-300 hover:scale-105"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>{t.ctaDevis}</span>
               </a>
               <a
-                href="tel:+2250508792288"
+                href="https://wa.me/2250171856777"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 border-2 border-white/60 hover:border-white text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/10"
               >
                 <PhoneCall className="w-5 h-5 text-brand-green" />
@@ -122,25 +116,16 @@ export default function Hero({ lang }: HeroProps) {
           </div>
 
           {/* Image Block */}
-          <div className="lg:col-span-5 relative flex justify-center w-full">
-            <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 bg-navy/80">
+          <div className="lg:col-span-6 relative flex justify-center w-full">
+            <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 bg-navy/80">
               <Image
                 src="/images/hero-bg.png"
                 alt="ETS Cabinet de langues"
                 fill
-                sizes="(max-width: 1024px) 100vw, 420px"
+                sizes="(max-width: 1024px) 100vw, 500px"
                 className="object-cover object-top"
                 priority
               />
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-panel-dark flex items-center gap-3">
-                <div className="p-2.5 bg-brand-green/20 text-brand-green rounded-xl">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-400 font-medium">{t.validity}</div>
-                  <div className="text-sm font-bold text-white">{t.min}</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -68,9 +68,10 @@ export default function Footer({ lang }: FooterProps) {
 
   const navItems = [
     { label: lang === "fr" ? "Accueil" : lang === "en" ? "Home" : lang === "es" ? "Inicio" : lang === "pt" ? "Início" : lang === "de" ? "Start" : "首页", id: "hero", href: "/" },
-    { label: "Services", id: "services", href: "/#services" },
+    { label: "Services", id: "services", href: "/services" },
     { label: lang === "fr" ? "À propos" : lang === "en" ? "About Us" : lang === "es" ? "¿Quiénes Somos?" : lang === "pt" ? "Quem Somos?" : lang === "de" ? "Über uns" : "关于我们", id: "about", href: "/a-propos" },
-    { label: "Contact", id: "contact", href: "/#contact" }
+    { label: "Blog", id: "blog", href: "/blog" },
+    { label: "Contact", id: "contact", href: "/contact" }
   ];
 
   return (
@@ -132,27 +133,27 @@ export default function Footer({ lang }: FooterProps) {
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm" role="list">
               <li>
-                <a href="/#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
+                <a href="/services" className="hover:text-brand-green transition-colors">
                   {translations[lang].services.formation.title}
                 </a>
               </li>
               <li>
-                <a href="/#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
+                <a href="/services" className="hover:text-brand-green transition-colors">
                   {translations[lang].services.interpretation.title}
                 </a>
               </li>
               <li>
-                <a href="/#translation" onClick={(e) => handleScrollTo(e, "translation")} className="hover:text-brand-green transition-colors">
+                <a href="/services" className="hover:text-brand-green transition-colors">
                   {translations[lang].services.traduction.title}
                 </a>
               </li>
               <li>
-                <a href="/#services" onClick={(e) => handleScrollTo(e, "services")} className="hover:text-brand-green transition-colors">
+                <a href="/services" className="hover:text-brand-green transition-colors">
                   {translations[lang].services.sejours.title}
                 </a>
               </li>
               <li>
-                <a href="/#program" onClick={(e) => handleScrollTo(e, "program")} className="hover:text-brand-green transition-colors">
+                <a href="/blog/holiday-fun-english" className="hover:text-brand-green transition-colors">
                   Holiday, Fun &amp; English
                 </a>
               </li>
@@ -192,17 +193,8 @@ export default function Footer({ lang }: FooterProps) {
         </div>
 
         {/* Lower footer */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center">
-          <span>© {currentYear} ETS. {t.copyright} Développé par <a href="#" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-brand-green transition-colors">Roosevelt</a>.</span>
-          <div className="flex gap-4">
-            <a href="/#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
-              {t.legalLink}
-            </a>
-            <span>·</span>
-            <a href="/#contact" onClick={(e) => handleScrollTo(e, "contact")} className="hover:text-brand-green transition-colors">
-              {t.privacyLink}
-            </a>
-          </div>
+        <div className="pt-8 border-t border-white/5 flex flex-col items-center justify-center text-xs text-gray-500 gap-4 text-center w-full">
+          <span>© {currentYear} ETS Tous droits réservés. Développé par <a href="https://roosevelt.izivoice.app/" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-brand-green transition-colors">Roosevelt</a>.</span>
         </div>
       </div>
     </footer>
