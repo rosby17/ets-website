@@ -117,7 +117,7 @@ export default function Services({ lang }: ServicesProps) {
 
                 <a
                   href={`/services/${service.id}`}
-                  className="mt-auto self-start inline-flex items-center gap-2 py-2 px-5 rounded-full border border-gray-200 text-brand-blue hover:border-brand-blue hover:bg-brand-blue/5 font-semibold text-sm transition-all duration-300"
+                  className="mt-auto w-full md:w-auto self-center justify-center inline-flex items-center gap-2 py-3 md:py-2 px-6 md:px-5 rounded-full border border-gray-200 text-brand-blue hover:border-brand-blue hover:bg-brand-blue/5 font-bold md:font-semibold text-sm transition-all duration-300"
                 >
                   <span>Découvrir le service</span>
                   <ArrowRight className="w-4 h-4" />

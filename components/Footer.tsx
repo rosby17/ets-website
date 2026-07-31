@@ -79,7 +79,7 @@ export default function Footer({ lang }: FooterProps) {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
           {/* Logo & Slogan */}
-          <div className="lg:col-span-4 flex flex-col items-start gap-4">
+          <div className="lg:col-span-4 flex flex-col items-center text-center md:items-start md:text-left gap-4">
             <a href="/" onClick={(e) => handleScrollTo(e, "hero")} className="flex items-center gap-3">
               <Image
                 src="/logo.png"
@@ -93,7 +93,7 @@ export default function Footer({ lang }: FooterProps) {
               {t.tagline}
             </p>
             {/* Social Icons */}
-            <div className="flex gap-3 mt-3">
+            <div className="flex justify-center md:justify-start gap-3 mt-3">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -110,7 +110,7 @@ export default function Footer({ lang }: FooterProps) {
           </div>
 
           {/* Quick links */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="lg:col-span-2 flex flex-col items-center text-center md:items-start md:text-left gap-4">
             <h4 className="text-xs font-bold tracking-wider text-white uppercase border-b border-white/5 pb-2">
               {t.navTitle}
             </h4>
@@ -127,7 +127,7 @@ export default function Footer({ lang }: FooterProps) {
           </div>
 
           {/* Services Column */}
-          <div className="lg:col-span-3 flex flex-col gap-4">
+          <div className="lg:col-span-3 flex flex-col items-center text-center md:items-start md:text-left gap-4">
             <h4 className="text-xs font-bold tracking-wider text-white uppercase border-b border-white/5 pb-2">
               {t.servicesTitle}
             </h4>
@@ -161,30 +161,30 @@ export default function Footer({ lang }: FooterProps) {
           </div>
 
           {/* Contact Details */}
-          <div className="lg:col-span-3 flex flex-col gap-4">
+          <div className="lg:col-span-3 flex flex-col items-center text-center md:items-start md:text-left gap-4">
             <h4 className="text-xs font-bold tracking-wider text-white uppercase border-b border-white/5 pb-2">
               {t.contactTitle}
             </h4>
             <div className="flex flex-col gap-3 text-sm">
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-row items-center justify-center md:justify-start md:items-start gap-2.5">
                 <Phone className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
                 <a href="tel:+2250508792288" className="hover:text-brand-green transition-colors">
                   +225 05 08 79 22 88
                 </a>
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-row items-center justify-center md:justify-start md:items-start gap-2.5">
                 <MessageCircle className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
                 <a href="https://wa.me/2250171856777" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green transition-colors">
                   +225 01 71 85 67 77
                 </a>
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-row items-center justify-center md:justify-start md:items-start gap-2.5">
                 <Mail className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
                 <a href="mailto:englishandtranslations2023@gmail.com" className="hover:text-brand-green transition-colors break-all">
                   englishandtranslations2023@gmail.com
                 </a>
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-row items-center justify-center md:justify-start md:items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
                 <span>Angré 22e · Riviera 3 · Yopougon Bel-Air, Abidjan</span>
               </div>

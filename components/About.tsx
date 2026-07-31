@@ -34,7 +34,7 @@ export default function About({ lang }: AboutProps) {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Image */}
-          <div className="lg:col-span-6 relative w-full flex justify-center">
+          <div className="lg:col-span-6 order-2 lg:order-1 relative w-full flex justify-center">
             <div className="relative w-full max-w-[520px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-50">
               <Image
                 src="/images/about-team.png"
@@ -61,7 +61,7 @@ export default function About({ lang }: AboutProps) {
           </div>
 
           {/* Text brief */}
-          <div className="lg:col-span-6 flex flex-col items-start gap-6 lg:pl-4">
+          <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start gap-6 lg:pl-4">
             <div className="flex flex-col gap-2">
               <span className="text-xs font-bold tracking-widest text-brand-green uppercase">
                 {t.label}
