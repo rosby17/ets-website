@@ -9,6 +9,7 @@ export function generateStaticParams() {
   ];
 }
 
-export default function ServiceDetailPage({ params }: { params: { id: string } }) {
-  return <ServiceDetailClient id={params.id} />;
+export default async function ServiceDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  return <ServiceDetailClient id={resolvedParams.id} />;
 }
